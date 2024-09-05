@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework', 
     'django_filters',
     'app.medicineInventory',
+    'app.Employees'
 ]
 
 MIDDLEWARE = [
