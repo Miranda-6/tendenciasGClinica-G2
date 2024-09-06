@@ -12,7 +12,8 @@ class MedicineInventory(models.Model):
     
     nameMedicine = models.CharField('Nombre medicamento', max_length=100)
     description = models.CharField('Descripción', max_length=500)
+    quantityAvailable = models.IntegerField('Cantidad disponible')
     
     
     def __str__(self):
-        return f'{self.nameMedicine} - {self.description}'
+        return f'{self.nameMedicine} - {self.description} - {self.quantityAvailable}'
