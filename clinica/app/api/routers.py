@@ -3,8 +3,6 @@ from ..medicineInventory.views import *
 from ..Employees.views import *
 from ..Patients.views import *
 from ..MedicalRecords.views import *
-from ..Billing.views import *
-from ..Appointment.views import *
 
 router = DefaultRouter()
 
@@ -13,7 +11,5 @@ router.register(r'medicineInventory', medicineInventoryViewset, basename='Invent
 router.register(r'Employees', EmployeesViewSet, basename='Employees')
 router.register(r'Patients', PatientsViewSet, basename='Patients')
 router.register(r'MedicalRecords', MedicalRecordViewSet, basename='Medical Records')
-router.register(r'Billing', BillingsViewSet, basename='Billing')
-router.register(r'Appointment', AppointmentsViewSet, basename='Appointment')
 
 urlpatterns = router.urls 

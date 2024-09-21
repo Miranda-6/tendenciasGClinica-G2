@@ -9,13 +9,12 @@ employees
 
 
 **migue
-appointment - Done
-Billing - Done
-
+appointment
+Patients
 
 
 **carlos
-Patients
+Billing
 MedicalRecords
 
 
