@@ -42,10 +42,13 @@ INSTALLED_APPS = [
     'rest_framework', 
     'django_filters',
     'model_utils',
+    
+    'app.Billing',
     'app.medicineInventory',
     'app.Employees',
     'app.Patients',
     'app.MedicalRecords',
+    'app.Appointment',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,6 @@
 from django.db import models
-from clinica.app.MedicalRecords.models import MedicalRecords
-from clinica.app.Patients.models import Patients
+from ..MedicalRecords.models import MedicalRecords
+from ..Patients.models import Patients
 
 class Billing(models.Model):
     class Meta:
@@ -10,7 +10,7 @@ class Billing(models.Model):
     idPatient = models.ForeignKey(Patients, on_delete=models.CASCADE, blank=False)
     idMedicalRecords = models.ForeignKey(MedicalRecords, on_delete=models.CASCADE, blank=False)
     date = models.DateField(auto_now_add=True)
-    totalAmount = models.DecimalField(decimal_places=2)
+    totalAmount = models.DecimalField(max_digits=10, decimal_places=2)
     details = models.CharField('Details', max_length=100, blank = True)
     paymentStatus = models.BooleanField(default=False)
     

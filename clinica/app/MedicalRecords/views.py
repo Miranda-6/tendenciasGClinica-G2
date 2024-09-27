@@ -16,5 +16,5 @@ class MedicalRecordViewSet(viewsets.ModelViewSet):
     ]
     
     filterset_fields = ('__all__')
-    search_fields = ('idPatient__firstName', 'idEmployees__firstName', 'idMedicineInventory__nameMedicine')
+    search_fields = ('id', 'idPatient__firstName', 'idEmployees__firstName', 'idMedicineInventory__nameMedicine')
     ordering_fields = ('__all__')

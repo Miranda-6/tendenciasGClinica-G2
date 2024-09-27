@@ -13,8 +13,8 @@ class Employees(models.Model):
     firstName = models.CharField('Nombres', max_length=100)
     lastName = models.CharField('Apellidos', max_length=100)
     email = models.EmailField('Correo electrónico', max_length=100)
-    phone = models.CharField('Celular')
-    birthdate = models.DateField('Fecha de nacimiento')
+    phone = models.CharField('Celular', max_length=10)
+    birthdate = models.DateField('Fecha de nacimiento', blank=True, null=True)
     address = models.CharField('Dirección', max_length=100)
     rol_options = (
         ("MED", "Medico(a)"),

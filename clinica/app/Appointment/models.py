@@ -1,6 +1,6 @@
 from django.db import models
-from clinica.app.Employees.models import Employees
-from clinica.app.Patients.models import Patients
+from ..Employees.models import Employees
+from ..Patients.models import Patients
 
 class Appointment(models.Model):
     class Meta:
@@ -9,8 +9,8 @@ class Appointment(models.Model):
         
     idPatient = models.ForeignKey(Patients, on_delete=models.CASCADE, blank=False)
     idEmployee = models.ForeignKey(Employees, on_delete=models.CASCADE, blank=False)
-    datetime = models.DateTimeField(blank=False, null= False)
-    reason = models.CharField('Reason', max_length=100, blank = True)
+    datetime = models.DateTimeField(blank=False, null=False)
+    reason = models.CharField('Reason', max_length=100, blank=True)
     status = models.BooleanField('Status',default=False)
     
     
