@@ -25,9 +25,9 @@ class Patients(models.Model):
     )
 
     emergency_contact = models.CharField('Emergency Contact', max_length=50)
-    emergency_contact_phone = models.CharField("Emergency Contact Phone", max_length=20)
+    emergency_contact_phone = models.CharField("Emergency Contact Phone", max_length=20, default='000-000-0000')
     insurance_entity = models.CharField("Insurance", max_length=50)
-    policy_number = models.CharField("Policy Number", max_length=20)
+    policy_number = models.CharField("Policy Number", max_length=20, default='0000000000')
     
     
     def __str__(self):
