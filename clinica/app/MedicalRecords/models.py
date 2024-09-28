@@ -14,5 +14,6 @@ class MedicalRecords(TimeStampedModel):
     idEmployees = models.ForeignKey(Employees, on_delete=models.CASCADE, blank=True)
     idMedicineInventory = models.ForeignKey(MedicineInventory, on_delete=models.CASCADE, blank=True)
     
+    
     def __str__(self):
         return f'{self.idPatient} - {self.description}'

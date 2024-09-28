@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import MedicalRecords
+from .models import Billing
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
-from .serializers import MedicalRecordSerializers
+from .serializers import BillingsSerializers
 
-class MedicalRecordViewSet(viewsets.ModelViewSet):
-    queryset = MedicalRecords.objects.all()
-    serializer_class = MedicalRecordSerializers
+class BillingsViewSet(viewsets.ModelViewSet):
+    queryset = Billing.objects.all()
+    serializer_class = BillingsSerializers
     
     filter_backends = [
         DjangoFilterBackend,
@@ -16,5 +16,5 @@ class MedicalRecordViewSet(viewsets.ModelViewSet):
     ]
     
     filterset_fields = ('__all__')
-    search_fields = ('id', 'idPatient__firstName', 'idEmployees__firstName', 'idMedicineInventory__nameMedicine')
+    search_fields = ('idPatient__firstName', 'idMedicalRecords__description', 'date','paymentStatus')
     ordering_fields = ('__all__')
