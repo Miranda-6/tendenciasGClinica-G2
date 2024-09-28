@@ -18,7 +18,7 @@ class Appointment(models.Model):
     reason = models.CharField('Reason', max_length=100, blank=True)
     status = models.CharField(
         'Status',
-        max_length=2,
+        max_length=20,
         choices=AppointmentStatus.choices,
         default=AppointmentStatus.PROGR
     )
