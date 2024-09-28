@@ -43,3 +43,4 @@ Thumbs.db
 /clinica/entorno
 /entorno
 **/__pycache__/
+**.env
