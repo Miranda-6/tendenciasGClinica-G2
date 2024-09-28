@@ -16,12 +16,7 @@ class Appointment(models.Model):
     idEmployee = models.ForeignKey(Employees, on_delete=models.CASCADE, blank=False)
     datetime = models.DateTimeField(blank=False, null=False)
     reason = models.CharField('Reason', max_length=100, blank=True)
-    status = models.CharField(
-        'Status',
-        max_length=2,
-        choices=AppointmentStatus.choices,
-        default=AppointmentStatus.PROGR
-    )
+    status = models.CharField('Status',max_length=10,choices=AppointmentStatus.choices,default=AppointmentStatus.PROGR)
     
     def __str__(self):
         return f'{self.datetime} - {self.idPatient} - {self.idEmployee} - {self.reason}'
