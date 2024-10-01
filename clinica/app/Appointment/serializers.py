@@ -14,16 +14,16 @@ class AppointmentsSerializers(serializers.ModelSerializer):
         
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['idEmployee'] = {
+        representation['employee'] = {
             'id': instance.idEmployee.id,
-            'name': instance.idEmployee.firstName,
+            'firstName': instance.idEmployee.firstName,
             'lastName': instance.idEmployee.lastName,
             'email': instance.idEmployee.email,
         }
-        representation['idPatient'] = {
+        representation['patient'] = {
             'id': instance.idPatient.id,
-            'name': instance.idPatient.firstName,
-            'lastname': instance.idPatient.lastName,
+            'firstName': instance.idPatient.firstName,
+            'lastName': instance.idPatient.lastName,
             'email': instance.idPatient.email,
         }
         return representation
