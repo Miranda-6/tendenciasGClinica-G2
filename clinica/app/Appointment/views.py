@@ -9,11 +9,15 @@ from .models import Appointment
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import AppointmentsSerializers
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class AppointmentsViewSet(viewsets.ModelViewSet):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentsSerializers
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = ([JWTAuthentication])
     
     filter_backends = [
         DjangoFilterBackend,

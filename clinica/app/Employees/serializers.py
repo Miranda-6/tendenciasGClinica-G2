@@ -11,15 +11,7 @@ class EmployeesSerializer(serializers.ModelSerializer):
         model = Employees
         fields = ('__all__')
         
-    
-    """ def create(self, validated_data):
-        #Cuando se crea el usuario, encriptamo la contraseña
-        user = Employees.objects.create(
-            username = validated_data['username'],
-            password = make_password(validated_data['password']) #Encripta la contraseña
-        )
-        return user """
-        
+
     def create (self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
         return Employees.objects.create(**validated_data)

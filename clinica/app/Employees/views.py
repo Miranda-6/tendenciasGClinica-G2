@@ -4,12 +4,16 @@ from .models import *
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import *
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 # Create your views here.
 
 class EmployeesViewSet(viewsets.ModelViewSet):
     queryset = Employees.objects.all()
     serializer_class = EmployeesSerializer
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = ([JWTAuthentication])
     
     filter_backends = [
         DjangoFilterBackend,

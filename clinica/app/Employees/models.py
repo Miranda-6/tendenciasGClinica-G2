@@ -30,10 +30,5 @@ class Employees(models.Model):
     username = models.CharField('Nombre de usuario', max_length=50)
     password = models.CharField('Contraseña', max_length=100)
     
-    def save(self, *args, **kwargs):
-        if self.password:
-            self.password = make_password(self.password)  # Encripta la contraseña
-        super(Employees, self).save(*args, **kwargs)
-    
     def __str__(self):
         return f"{self.firstName} {self.lastName} - {self.rol} - {self.username}"

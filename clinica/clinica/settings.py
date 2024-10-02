@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
     'django_filters',
     'drf_yasg',
     'model_utils',
@@ -53,6 +54,14 @@ INSTALLED_APPS = [
     'app.MedicalRecords',
     'app.Appointment',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

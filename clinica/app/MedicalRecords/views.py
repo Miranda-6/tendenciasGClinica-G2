@@ -4,10 +4,14 @@ from .models import MedicalRecords
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import MedicalRecordSerializers
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class MedicalRecordViewSet(viewsets.ModelViewSet):
     queryset = MedicalRecords.objects.all()
     serializer_class = MedicalRecordSerializers
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = ([JWTAuthentication])
     
     filter_backends = [
         DjangoFilterBackend,
