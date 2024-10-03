@@ -10,8 +10,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class BillingsViewSet(viewsets.ModelViewSet):
     queryset = Billing.objects.all()
     serializer_class = BillingsSerializers
-    # permission_classes = [IsAuthenticated]
-    # authentication_classes = ([JWTAuthentication])
+    permission_classes = [IsAuthenticated]
+    authentication_classes = ([JWTAuthentication])
     
     
     filter_backends = [

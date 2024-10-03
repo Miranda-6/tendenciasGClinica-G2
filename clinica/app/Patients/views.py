@@ -14,8 +14,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class PatientsViewSet(viewsets.ModelViewSet):
     queryset = Patients.objects.all()
     serializer_class = PatientsSerializers
-    # permission_classes = [IsAuthenticated]
-    # authentication_classes = ([JWTAuthentication])
+    permission_classes = [IsAuthenticated]
+    authentication_classes = ([JWTAuthentication])
     
     filter_backends = [
         DjangoFilterBackend,

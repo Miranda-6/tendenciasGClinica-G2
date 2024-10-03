@@ -10,8 +10,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class MedicalRecordViewSet(viewsets.ModelViewSet):
     queryset = MedicalRecords.objects.all()
     serializer_class = MedicalRecordSerializers
-    # permission_classes = [IsAuthenticated]
-    # authentication_classes = ([JWTAuthentication])
+    permission_classes = [IsAuthenticated]
+    authentication_classes = ([JWTAuthentication])
     
     filter_backends = [
         DjangoFilterBackend,
