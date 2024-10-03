@@ -28,7 +28,7 @@ class Patients(models.Model):
     emergency_contact_phone = models.CharField("Emergency Contact Phone", max_length=20, default='000-000-0000')
     insurance_entity = models.CharField("Insurance", max_length=50)
     policy_number = models.CharField("Policy Number", max_length=20, default='0000000000')
-    Polycy_state = models.BooleanField(default=False)
+    Policy_state = models.BooleanField(default=False)
     policy_validity = models.DateField('policy_validity', blank=False, null=False, default='0001-01-01')
     Cedula = models.CharField('Cedula', max_length=10, default='0000000000')
     

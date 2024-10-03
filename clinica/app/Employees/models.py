@@ -1,10 +1,24 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import hashers
 
 # Create your models here.
 
-class Employees(models.Model):
+class EmployeesManager(BaseUserManager):
+    def create_user(self, username, password=None, **extra_fields):
+        if not username:
+            raise ValueError('The Username must be set')
+        user = self.model(username=username, **extra_fields)
+        user.set_password(password)  # Esto encripta la contraseña automáticamente
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, username, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(username, password, **extra_fields)
+
+class Employees(AbstractBaseUser, PermissionsMixin):
     
     class Meta:
         verbose_name = "Employees"
@@ -27,13 +41,15 @@ class Employees(models.Model):
     )
     
     rol = models.CharField('Cargo', max_length=50, blank=False, null=False, choices=rol_options, default='OTR')
-    username = models.CharField('Nombre de usuario', max_length=50)
-    password = models.CharField('Contraseña', max_length=100)
+    username = models.CharField(max_length=50, unique=True)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     
-    def save(self, *args, **kwargs):
-        if self.password:
-            self.password = make_password(self.password)  # Encripta la contraseña
-        super(Employees, self).save(*args, **kwargs)
+    objects = EmployeesManager()
+
+    USERNAME_FIELD = 'username'  # Campo que será usado como nombre de usuario
+    REQUIRED_FIELDS = ['email', 'firstName', 'lastName', 'phone', 'birthdate', 'address', 'rol']
     
     def __str__(self):
         return f"{self.firstName} {self.lastName} - {self.rol} - {self.username}"
