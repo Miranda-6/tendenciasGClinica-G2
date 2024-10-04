@@ -47,6 +47,6 @@ Instalacion
     pip install -r requirements.txt
     migraciones..
 
-Instruciones del front esta en el readme de esa carpeta.
+Instruciones del front esta en el readme de esa carpeta (https://github.com/manuruizb/proyecto_clinica_grupo2_frontend.git).
 
-Link mas especifico para la base de datos: [text](https://medium.com/@a01207543/django-conecta-tu-proyecto-con-la-base-de-datos-mysql-2d329c73192a)
+Link mas especifico para la base de datos: (https://medium.com/@a01207543/django-conecta-tu-proyecto-con-la-base-de-datos-mysql-2d329c73192a)
