@@ -29,6 +29,11 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         user = authenticate(username=username, password=password)
 
         if user is not None:
+            
+            if user.rol != 'ADM':
+                raise serializers.ValidationError({
+                    "detail": "No tienes permisos para acceder."
+                })
             # Si el usuario se autentica correctamente, se continúa con la generación del token
             data = super().validate(attrs)
             
